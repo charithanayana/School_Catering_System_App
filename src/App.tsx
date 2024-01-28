@@ -4,16 +4,17 @@ import Login from './pages/Login';
 import ParentRegister from './pages/ParentRegister';
 import DoctorAdmin from './pages/DoctorAdmin';
 import GuardianAdmin from './pages/GuardianAdmin';
+import SignIn from './pages/Login';
 
 function App() {
   return (
     <>
      <BrowserRouter>
       <Routes>
-          <Route path="/" element={<DoctorAdmin/>}/>
-          <Route path='/admin' element={<GuardianAdmin/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<ParentRegister/>}/>
+          <Route path="/" element={<SignIn/>}/>
+          <Route path="/doctor" element={<DoctorAdmin/>}/>
+          <Route path='/guardian' element={<GuardianAdmin/>}/>
+          <Route path='/guardian/register' element={<ParentRegister/>}/>
       </Routes>
      </BrowserRouter>
     </>

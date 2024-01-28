@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props: any) {
   return (
@@ -29,13 +30,21 @@ function Copyright(props: any) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+  const navigate = useNavigate();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
+      userName: data.get('userName'),
       password: data.get('password'),
     });
+    if (data.get('userName') === 'doctor') {
+      navigate('/doctor');
+    } else if (data.get('userName') === 'guardian') {
+      navigate('/guardian');
+    }
   };
 
   return (
@@ -60,11 +69,10 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              size='small'
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="user-name"
+              label="User Name"
+              name="userName"
+              autoComplete="userName"
               autoFocus
             />
             <TextField
