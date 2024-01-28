@@ -11,10 +11,7 @@ function GuardianAdmin() {
         <h1>Guardian Admin</h1>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus. 
+          Gurdian Administraion Functions
         </Typography>
         <TextField
         margin="normal"

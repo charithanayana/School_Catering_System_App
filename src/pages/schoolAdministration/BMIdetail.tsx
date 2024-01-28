@@ -1,15 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import SideNav from '../components/GuardianSideNav'
-import { Box, Card, CardContent, Typography } from '@mui/material'
+import { Box, Card, CardContent, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import GuardianSideNav from '../components/GuardianSideNav';
+import SchoolAdminSideNav from '../../components/SchoolAdminSideNav';
 
-function DoctorAdmin() {
+function BMIdetail() {
   return (
     <>
       <Box sx={{ display: 'flex', marginTop: '60px' }}>
-        <GuardianSideNav />
+        <SchoolAdminSideNav />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={8}>
@@ -20,7 +17,7 @@ function DoctorAdmin() {
                     Lizard
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Doctor Administration Functions
+                   School Administration BMI Functions
                   </Typography>
                 </CardContent>
               </Card>
@@ -44,4 +41,4 @@ function DoctorAdmin() {
   )
 }
 
-export default DoctorAdmin
+export default BMIdetail
