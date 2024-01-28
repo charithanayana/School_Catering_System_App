@@ -124,13 +124,16 @@ export default function ParentRegister() {
                 />
               </Grid>
             </Grid>
-            <Button
-              type="submit"
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign Up
-            </Button>
+            <Box textAlign={'center'}>
+              <Button
+
+                type="submit"
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign Up
+              </Button>
+            </Box>
             <Grid container justifyContent="center">
               <Grid item>
                 <Link href="/" variant="body2">
