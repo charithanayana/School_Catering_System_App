@@ -5,7 +5,7 @@ import { Box, Card, CardContent, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid';
 import GuardianSideNav from '../components/GuardianSideNav';
 
-function DoctorAdmin() {
+function CateringAdmin() {
   return (
     <>
       <Box sx={{ display: 'flex', marginTop: '60px' }}>
@@ -20,7 +20,7 @@ function DoctorAdmin() {
                     Lizard
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Doctor Administration Functions
+                    Catering Administration Functions
                   </Typography>
                 </CardContent>
               </Card>
@@ -44,4 +44,4 @@ function DoctorAdmin() {
   )
 }
 
-export default DoctorAdmin
+export default CateringAdmin
