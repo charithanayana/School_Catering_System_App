@@ -61,6 +61,7 @@ export default function SignIn() {
               required
               fullWidth
               id="email"
+              size='small'
               label="Email Address"
               name="email"
               autoComplete="email"
@@ -71,6 +72,7 @@ export default function SignIn() {
               required
               fullWidth
               name="password"
+              size='small'
               label="Password"
               type="password"
               id="password"

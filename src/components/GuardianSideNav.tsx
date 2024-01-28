@@ -91,7 +91,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function SideNav() {
+export default function GuardianSideNav() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
@@ -127,7 +127,7 @@ export default function SideNav() {
 
         <Divider />
         <List>
-        <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/")}}>
+           <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,

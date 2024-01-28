@@ -11,7 +11,8 @@ function App() {
      <BrowserRouter>
       <Routes>
           <Route path="/" element={<DoctorAdmin/>}/>
-          <Route path='/login' element={<GuardianAdmin/>}/>
+          <Route path='/admin' element={<GuardianAdmin/>}/>
+          <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<ParentRegister/>}/>
       </Routes>
      </BrowserRouter>

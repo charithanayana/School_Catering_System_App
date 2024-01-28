@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SideNav from '../components/SideNav'
+import SideNav from '../components/GuardianSideNav'
 import { Box, Card, CardContent, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid';
+import GuardianSideNav from '../components/GuardianSideNav';
 
 function DoctorAdmin() {
   return (
     <>
       <Box sx={{ display: 'flex', marginTop: '60px' }}>
-        <SideNav />
+        <GuardianSideNav />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={8}>
