@@ -169,7 +169,7 @@ export default function GuardianSideNav({ title }: { title: string }) {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=> {navigate("/register")}}>
+            <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=> {navigate("/guardian/paymentMethod")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -186,7 +186,49 @@ export default function GuardianSideNav({ title }: { title: string }) {
                 >
                     <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Payment Method" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/guardian/bmaiChart")}}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                    <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary="BMI Chart" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/guardian/userProfile")}}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                    <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary="User Profile" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
         </List>

@@ -6,12 +6,18 @@ import DoctorAdmin from './pages/ConsultantPage';
 import GuardianAdmin from './pages/Guardian/GuardianHomePage';
 import SignIn from './pages/Login';
 import SchoolAdmin from './pages/schoolAdministration/SchoolAdmin';
-import CateringAdmin from './pages/CateringManagePage';
+import CateringAdmin from './pages/cateringManager/CateringManagePage';
 import BMIdetail from './pages/schoolAdministration/BMIdetail';
 import GuardianDetail from './pages/schoolAdministration/GuardianDetail';
 import Feedback from './pages/schoolAdministration/Feedback';
 import GuardianCardDetail from './pages/Guardian/GuardianCardDetail';
 import StudentRegistration from './pages/Guardian/StudentRegistration';
+import CateringManagerPage from './pages/cateringManager/CateringManagePage';
+import AddMenuPage from './pages/cateringManager/AddMenuPage';
+import AddMenuItems from './pages/cateringManager/AddMenuItems';
+import BmiChart from './pages/Guardian/BmiChart';
+import PaymentMethod from './pages/Guardian/PaymentMethod';
+import UserProfile from './pages/Guardian/UserProfile';
 
 function App() {
   return (
@@ -29,7 +35,13 @@ function App() {
           <Route path='/schoolAdmin/feedback' element={<Feedback/>}/>
           <Route path='/guardian/foodDetail' element={<GuardianCardDetail/>}/>
           <Route path='/guardian/student-register' element={<StudentRegistration/>}/>
-          
+          <Route path='/guardian/bmaiChart' element={<BmiChart/>}/>
+          <Route path='/guardian/paymentMethod' element={<PaymentMethod/>}/>
+          <Route path='/guardian/userProfile' element={<UserProfile/>}/>
+          {/* Catering Manager */}
+          <Route path='/catering-manager' element={<CateringManagerPage/>}/>          
+          <Route path='/catering-manager/addMenu' element={<AddMenuPage/>}/>          
+          <Route path='/catering-manager/addMenuItems' element={<AddMenuItems/>}/>          
       </Routes>
      </BrowserRouter>
     </>

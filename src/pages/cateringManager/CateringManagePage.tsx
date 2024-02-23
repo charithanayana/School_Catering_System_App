@@ -1,15 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SideNav from '../components/GuardianSideNav'
+import SideNav from '../../components/GuardianSideNav'
 import { Box, Card, CardContent, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid';
-import GuardianSideNav from '../components/GuardianSideNav';
+import GuardianSideNav from '../../components/GuardianSideNav';
+import CateringManagerSideNav from '../../components/CateringManagerSideNav';
 
-function CateringAdmin() {
+function CateringManagerPage() {
   return (
     <>
       <Box sx={{ display: 'flex', marginTop: '60px' }}>
-        <GuardianSideNav title='Catering Admin'/>
+        <CateringManagerSideNav title='Catering Admin'/>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={8}>
@@ -44,4 +45,4 @@ function CateringAdmin() {
   )
 }
 
-export default CateringAdmin
+export default CateringManagerPage

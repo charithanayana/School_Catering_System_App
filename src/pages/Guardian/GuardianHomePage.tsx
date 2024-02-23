@@ -17,7 +17,7 @@ function GuardianAdmin() {
   return (
     <>
       <Box sx={{ display: 'flex', marginTop: '60px' }}>
-        <SideNav title='Guardian Admin'/>
+        <SideNav title='Home'/>
         <Box component="div" sx={{ flexGrow: 1, p: 3 }}>
           <Typography lineHeight={3} component="h1" variant="h4">
             Menu

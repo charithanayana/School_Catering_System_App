@@ -53,6 +53,8 @@ export default function ParentRegister() {
         title: "Your work has been saved",
         showConfirmButton: false,
         timer: 1500
+      }).catch((response) => {
+        alert(response);
       });
     });
   };
