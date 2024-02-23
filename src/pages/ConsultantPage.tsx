@@ -5,11 +5,11 @@ import { Box, Card, CardContent, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid';
 import GuardianSideNav from '../components/GuardianSideNav';
 
-function CateringAdmin() {
+function DoctorAdmin() {
   return (
     <>
       <Box sx={{ display: 'flex', marginTop: '60px' }}>
-        <GuardianSideNav />
+        <GuardianSideNav title='Docter admin'/>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={8}>
@@ -20,7 +20,7 @@ function CateringAdmin() {
                     Lizard
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Catering Administration Functions
+                    Doctor Administration Functions
                   </Typography>
                 </CardContent>
               </Card>
@@ -44,4 +44,4 @@ function CateringAdmin() {
   )
 }
 
-export default CateringAdmin
+export default DoctorAdmin

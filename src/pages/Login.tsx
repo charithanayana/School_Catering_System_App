@@ -18,7 +18,7 @@ function Copyright(props: any) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        catering system
+       School Catering System
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -74,6 +74,7 @@ export default function SignIn() {
               id="user-name"
               label="User Name"
               name="userName"
+              size='small'
               autoComplete="userName"
               autoFocus
             />

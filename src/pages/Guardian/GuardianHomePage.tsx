@@ -1,5 +1,5 @@
-import SideNav from '../components/GuardianSideNav'
-import { Box, Typography } from '@mui/material'
+import SideNav from '../../components/GuardianSideNav'
+import { Box, Button, Rating, Typography } from '@mui/material'
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -8,12 +8,16 @@ import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import ShareIcon from '@mui/icons-material/Share';
+import { useNavigate } from "react-router-dom";
+import React from 'react';
 
 function GuardianAdmin() {
+  const navigate = useNavigate();
+  const [value, setValue] = React.useState<number | null>(2);
   return (
     <>
-      <Box sx={{ display: 'flex', marginTop: '60px'}}>
-        <SideNav />
+      <Box sx={{ display: 'flex', marginTop: '60px' }}>
+        <SideNav title='Guardian Admin'/>
         <Box component="div" sx={{ flexGrow: 1, p: 3 }}>
           <Typography lineHeight={3} component="h1" variant="h4">
             Menu
@@ -37,6 +41,16 @@ function GuardianAdmin() {
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
+                <Rating
+                  name="simple-controlled"
+                  value={value}
+                  onChange={(event, newValue) => {
+                    setValue(newValue);
+                  }}
+                />
+              </CardActions>
+              <CardActions disableSpacing>
+                <Button onClick={() => navigate('/guardian/foodDetail')} size="small">Detail</Button>
                 <IconButton aria-label="add">
                   <AddIcon />
                 </IconButton>

@@ -11,15 +11,17 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { TextareaAutosize } from '@mui/base/TextareaAutosize';
+import axios from 'axios';
 
 import * as React from 'react';
+import Swal from 'sweetalert2';
 
 function Copyright(props: any) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant="body2" color="text.secondary" align="center" {...props} sx={{ marginBottom: 30 }}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Catering Service
+      <Link color="inherit" href="#">
+        School Catering Service
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -34,9 +36,24 @@ export default function ParentRegister() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+    const json = JSON.stringify({
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
+      email: data.get('eMail'),
+      mobile: data.get('telNo')
+    });
+    const res = axios.post("http://localhost:8080/catering/guardians", json, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
     });
   };
 
@@ -100,18 +117,17 @@ export default function ParentRegister() {
                   label="Address"
                   name='adress'
                 />
-              </Grid>
-              <Grid item xs={6} sm={6}>
+              </Grid><Grid item xs={6} sm={6}>
                 <TextField
                   size='small'
                   required
                   fullWidth
-                  id="userName"
-                  label="User Name"
-                  name="userName"
+                  id="eMail"
+                  label="Email"
+                  name="eMail"
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={6} sm={6}>
                 <TextField
                   size='small'
                   required
@@ -122,6 +138,21 @@ export default function ParentRegister() {
                   id="password"
                   autoComplete="new-password"
                 />
+              </Grid>
+              <Grid item xs={6} sm={6}>
+                <TextField
+                  size='small'
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  type="confirmPassword"
+                  id="confirmPassword"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={6}>
+
               </Grid>
             </Grid>
             <Box textAlign={'center'}>

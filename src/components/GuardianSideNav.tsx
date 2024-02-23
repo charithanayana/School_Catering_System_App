@@ -91,7 +91,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function GuardianSideNav() {
+export default function GuardianSideNav({ title }: { title: string }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
@@ -114,7 +114,7 @@ export default function GuardianSideNav() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            School Catering Service 
+          { title }
           </Typography>
         </Toolbar>
       </AppBar>
@@ -127,7 +127,7 @@ export default function GuardianSideNav() {
 
         <Divider />
         <List>
-           <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/")}}>
+           <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/guardian")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -148,7 +148,7 @@ export default function GuardianSideNav() {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/login")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/guardian/student-register")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -165,7 +165,7 @@ export default function GuardianSideNav() {
                 >
                     <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Guardian" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Register Student" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
 

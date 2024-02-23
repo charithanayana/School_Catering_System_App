@@ -6,7 +6,7 @@ function Feedback() {
   return (
     <>
       <Box sx={{ display: 'flex', marginTop: '60px' }}>
-        <SchoolAdminSideNav />
+        <SchoolAdminSideNav title='Feedback'/>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={8}>

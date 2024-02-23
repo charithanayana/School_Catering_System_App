@@ -92,7 +92,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function GuardianSideNav() {
+export default function SchoolAdminSideNav({ title }: { title: string }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
@@ -105,7 +105,7 @@ export default function GuardianSideNav() {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={()=> setOpen(!open)}
+            onClick={() => setOpen(!open)}
             edge="start"
             sx={{
               marginRight: 5,
@@ -115,101 +115,101 @@ export default function GuardianSideNav() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            School Administration 
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={()=> setOpen(!open)}>
+          <IconButton onClick={() => setOpen(!open)}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
 
         <Divider />
         <List>
-        <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/schoolAdmin")}}>
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/schoolAdmin") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                 <HomeIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Home" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-           <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/schoolAdmin/guardian-detail")}}>
-              <ListItemButton
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/schoolAdmin/guardian-detail") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                 <EscalatorWarning />
-                </ListItemIcon>
-                <ListItemText primary="Gurdian Details" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                <EscalatorWarning />
+              </ListItemIcon>
+              <ListItemText primary="Gurdian Details" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/schoolAdmin/bmi-detail")}}>
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/schoolAdmin/bmi-detail") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                    <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="BMI Details" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="BMI Details" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=> {navigate("/schoolAdmin/feedback")}}>
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/schoolAdmin/feedback") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                    <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Feedback" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Feedback" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
         </List>
       </Drawer>
     </Box>
