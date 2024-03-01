@@ -18,6 +18,7 @@ import AddMenuItems from './pages/cateringManager/AddMenuItems';
 import BmiChart from './pages/Guardian/BmiChart';
 import PaymentMethod from './pages/Guardian/PaymentMethod';
 import UserProfile from './pages/Guardian/UserProfile';
+import StudentList from './pages/Guardian/StudentList';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path='/schoolAdmin/feedback' element={<Feedback/>}/>
           <Route path='/guardian/foodDetail' element={<GuardianCardDetail/>}/>
           <Route path='/guardian/student-register' element={<StudentRegistration/>}/>
+          <Route path='/guardian/students' element={<StudentList/>}/>
           <Route path='/guardian/bmaiChart' element={<BmiChart/>}/>
           <Route path='/guardian/paymentMethod' element={<PaymentMethod/>}/>
           <Route path='/guardian/userProfile' element={<UserProfile/>}/>

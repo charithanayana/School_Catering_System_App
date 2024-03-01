@@ -19,6 +19,8 @@ import ListItemText from '@mui/material/ListItemText';
 import { useNavigate } from "react-router-dom";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Collapse from '@mui/material/Collapse';
+import StarBorder from '@mui/icons-material/StarBorder';
 
 const drawerWidth = 240;
 
@@ -148,7 +150,7 @@ export default function GuardianSideNav({ title }: { title: string }) {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/guardian/student-register")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -165,8 +167,26 @@ export default function GuardianSideNav({ title }: { title: string }) {
                 >
                     <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Register Student" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Student" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+              <Collapse in={open} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding onClick={()=> {navigate("/guardian/student-register")}}>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Register" />
+                  </ListItemButton>
+                </List>
+                <List component="div" disablePadding onClick={()=> {navigate("/guardian/students")}}>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="List" />
+                  </ListItemButton>
+                </List>
+              </Collapse>
             </ListItem>
 
             <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=> {navigate("/guardian/paymentMethod")}}>

@@ -65,7 +65,7 @@ export default function ParentRegister() {
     }).then((response) => {
       Swal.fire({
         icon: "success",
-        title: "The user registered successfully",
+        title: "The user has been registered successfully",
         showConfirmButton: false,
         timer: 1500
       });

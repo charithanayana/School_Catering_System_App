@@ -61,7 +61,7 @@ export default function SignIn() {
       if (authData.userType === 'CONSULTANT') {
         navigate('/doctor');
       } else if (authData.userType === 'GUARDIAN') {
-        navigate('/guardian');
+        navigate('/guardian/students');
       }
     });
   };
