@@ -12,9 +12,12 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { TextareaAutosize } from '@mui/base/TextareaAutosize';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 import * as React from 'react';
 import Swal from 'sweetalert2';
+import swalWithBootstrapButtons from 'sweetalert2'
+
 
 function Copyright(props: any) {
   return (
@@ -33,14 +36,27 @@ function Copyright(props: any) {
 const defaultTheme = createTheme();
 
 export default function ParentRegister() {
+  const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    if (data.get('password') !== data.get('confirmPassword')) {
+      swalWithBootstrapButtons.fire({
+        icon: "error",
+        title: "Password doesn't match with confirm password",
+        showConfirmButton: true
+      });
+      return;
+    }
     const json = JSON.stringify({
       firstName: data.get('firstName'),
       lastName: data.get('lastName'),
-      email: data.get('eMail'),
-      mobile: data.get('telNo')
+      mobile: data.get('mobile'),
+      email: data.get('email'),
+      address: data.get('address'),
+      userName: data.get('userName'),
+      password: data.get('password'),
+      confirmPassword: data.get('confirmPassword')
     });
     const res = axios.post("http://localhost:8080/catering/guardians", json, {
       headers: {
@@ -48,14 +64,12 @@ export default function ParentRegister() {
       }
     }).then((response) => {
       Swal.fire({
-        position: "top-end",
         icon: "success",
-        title: "Your work has been saved",
+        title: "The user registered successfully",
         showConfirmButton: false,
         timer: 1500
-      }).catch((response) => {
-        alert(response);
       });
+      navigate('/guardian');
     });
   };
 
@@ -99,62 +113,78 @@ export default function ParentRegister() {
                   name="lastName"
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={6} sm={6}>
                 <TextField
                   size='small'
                   required
                   fullWidth
                   id="telNo"
-                  label="Telephone Number"
-                  name="telNo"
+                  label="Mobile Number"
+                  name="mobile"
                 />
-              </Grid>
+              </Grid>              
               <Grid item xs={6} sm={6}>
-                <TextField
-                  placeholder="Address"
-                  size='small'
-                  minRows={2}
-                  maxRows={3}
-                  fullWidth
-                  label="Address"
-                  name='adress'
-                />
-              </Grid><Grid item xs={6} sm={6}>
                 <TextField
                   size='small'
                   required
                   fullWidth
                   id="eMail"
                   label="Email"
-                  name="eMail"
+                  name="email"
                 />
               </Grid>
-              <Grid item xs={6} sm={6}>
+
+              <Grid item xs={12} sm={12}>
                 <TextField
+                  name='address'
+                  label="Address"
                   size='small'
-                  required
                   fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
+                  multiline
+                  rows={4}
                 />
               </Grid>
-              <Grid item xs={6} sm={6}>
-                <TextField
-                  size='small'
-                  required
-                  fullWidth
-                  name="confirmPassword"
-                  label="Confirm Password"
-                  type="confirmPassword"
-                  id="confirmPassword"
-                  autoComplete="new-password"
-                />
-              </Grid>
+
               <Grid item xs={6}>
 
+              </Grid>
+            </Grid>
+            <Grid container spacing={2} rowSpacing={4}>
+
+              <Grid item xs={12} sm={12}>
+                  <TextField
+                    size='small'
+                    required
+                    fullWidth
+                    name="userName"
+                    label="User Name"
+                    type="text"
+                    id="userName"
+                  />
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                  <TextField
+                    size='small'
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                  />
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                  <TextField
+                    size='small'
+                    required
+                    fullWidth
+                    name="confirmPassword"
+                    label="Confirm Password"
+                    type="confirmPassword"
+                    id="confirmPassword"
+                    autoComplete="new-password"
+                  />
               </Grid>
             </Grid>
             <Box textAlign={'center'}>
