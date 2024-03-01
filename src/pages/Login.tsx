@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 function Copyright(props: any) {
   return (
@@ -40,11 +41,29 @@ export default function SignIn() {
       userName: data.get('userName'),
       password: data.get('password'),
     });
-    if (data.get('userName') === 'doctor') {
-      navigate('/doctor');
-    } else if (data.get('userName') === 'guardian') {
-      navigate('/guardian');
-    }
+    let encodeAuth = window.btoa(data.get('userName') + ":" + data.get('password'));
+    let decodeAuth = window.atob(encodeAuth);
+    console.log(encodeAuth);
+    console.log(decodeAuth);
+
+    const json = JSON.stringify({
+      userName: data.get('userName'),
+      password: data.get('password')
+    });
+
+    const res = axios.post("http://localhost:8080/catering/auth", json, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response: any) => {
+      let authData = response.data;
+      localStorage.setItem('CATERING_LOGIN_USER', JSON.stringify(authData));
+      if (authData.userType === 'CONSULTANT') {
+        navigate('/doctor');
+      } else if (authData.userType === 'GUARDIAN') {
+        navigate('/guardian');
+      }
+    });
   };
 
 
