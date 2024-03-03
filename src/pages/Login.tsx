@@ -62,6 +62,8 @@ export default function SignIn() {
         navigate('/doctor');
       } else if (authData.userType === 'GUARDIAN') {
         navigate('/guardian/students');
+      } else if (authData.userType === 'ADMIN') {
+        navigate('/schoolAdmin');
       }
     });
   };

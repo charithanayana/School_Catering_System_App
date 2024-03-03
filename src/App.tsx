@@ -8,6 +8,7 @@ import SignIn from './pages/Login';
 import SchoolAdmin from './pages/schoolAdministration/SchoolAdmin';
 import CateringAdmin from './pages/cateringManager/CateringManagePage';
 import BMIdetail from './pages/schoolAdministration/BMIdetail';
+import BMIRegistration from './pages/schoolAdministration/BMIRegistration';
 import GuardianDetail from './pages/schoolAdministration/GuardianDetail';
 import Feedback from './pages/schoolAdministration/Feedback';
 import GuardianCardDetail from './pages/Guardian/GuardianCardDetail';
@@ -31,7 +32,8 @@ function App() {
           <Route path='/guardian/register' element={<ParentRegister/>}/>
           <Route path='/cateringAdmin' element={<CateringAdmin/>}/>
           <Route path='/schoolAdmin' element={<SchoolAdmin/>}/>
-          <Route path='/schoolAdmin/bmi-detail' element={<BMIdetail/>}/>
+          <Route path='/schoolAdmin/bmi/details' element={<BMIdetail/>}/>
+          <Route path='/schoolAdmin/bmi/register' element={<BMIRegistration/>}/>
           <Route path='/schoolAdmin/guardian-detail' element={<GuardianDetail/>}/>
           <Route path='/schoolAdmin/feedback' element={<Feedback/>}/>
           <Route path='/guardian/foodDetail' element={<GuardianCardDetail/>}/>
