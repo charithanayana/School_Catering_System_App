@@ -3,7 +3,7 @@ import { Box, Button, Grid, Link, TextField, Typography, Select, MenuItem, Input
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { LineChart } from '@mui/x-charts/LineChart';
 
 function BMIdetail() {
@@ -13,6 +13,7 @@ function BMIdetail() {
   const [students, setStudents] = useState<any[]>([]);
   const [xAxisArray, setXaxisArray] = useState<any[]>([]);
   const [bmiArray, setBmiArray] = useState<any[]>([]);
+  const [studentObject, setStudentObject] = useState<any>({});
 
   useEffect(() => {
     const res = axios.get("http://localhost:8080/catering/students", {
@@ -23,6 +24,7 @@ function BMIdetail() {
       setStudents(response.data);
     });
   }, []);
+  
 
   const handleChange = (event: SelectChangeEvent) => {
     let studentId = event.target.value;
@@ -41,6 +43,14 @@ function BMIdetail() {
       setXaxisArray(xAxisArr);
       setBmiArray(bmiArr);
     });
+    const res2 = axios.get("http://localhost:8080/catering/students/" + studentId, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+      setStudentObject(response.data);
+      console.log(response.data);
+    });
   };
 
   return (
@@ -51,6 +61,12 @@ function BMIdetail() {
               <Box textAlign={'center'}>
                   <Typography lineHeight={3} component="h1" variant="h4">
                       BMI Details
+                  </Typography>
+              </Box>
+
+              <Box textAlign={'left'}>
+                  <Typography lineHeight={2} component="h6" variant="subtitle2">
+                    Report Of {studentObject?.firstName} {studentObject?.lastName}
                   </Typography>
               </Box>
               <Box component="div">
@@ -74,6 +90,18 @@ function BMIdetail() {
                       </FormControl>
                     </Grid>
                     <Grid item xs={6} sm={6} />
+
+
+<Box>
+  <h5>Student Name : {studentObject?.firstName} {studentObject?.lastName}</h5>
+  <h5>Index Number : {studentObject?.indexNumber}</h5>
+  <h5>Guarding Name : {studentObject.guardian?.firstName} {studentObject.guardian?.lastName}</h5> 
+</Box>
+
+
+
+
+
 
                     <Grid container spacing={2} rowSpacing={5} marginTop={5}>
                   <Grid item xs={6} sm={6}>                         
