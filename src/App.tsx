@@ -20,6 +20,8 @@ import BmiChart from './pages/Guardian/BmiChart';
 import PaymentMethod from './pages/Guardian/PaymentMethod';
 import UserProfile from './pages/Guardian/UserProfile';
 import StudentList from './pages/Guardian/StudentList';
+import OrderRegistration from './pages/Guardian/OrderRegistration';
+import StudentOrder from './pages/Guardian/StudentOrder';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
           <Route path='/guardian/foodDetail' element={<GuardianCardDetail/>}/>
           <Route path='/guardian/student-register' element={<StudentRegistration/>}/>
           <Route path='/guardian/students' element={<StudentList/>}/>
+          <Route path='/guardian/order-register' element={<OrderRegistration/>}/>
+          <Route path='/guardian/orders' element={<StudentOrder/>}/>
           <Route path='/guardian/bmaiChart' element={<BmiChart/>}/>
           <Route path='/guardian/paymentMethod' element={<PaymentMethod/>}/>
           <Route path='/guardian/userProfile' element={<UserProfile/>}/>

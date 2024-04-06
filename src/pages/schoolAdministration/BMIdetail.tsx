@@ -5,10 +5,19 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { LineChart } from '@mui/x-charts/LineChart';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 function BMIdetail() {
 
   const navigate = useNavigate();
+
+  const [orders, setOrders] = useState<any[]>([]);
 
   const [students, setStudents] = useState<any[]>([]);
   const [xAxisArray, setXaxisArray] = useState<any[]>([]);
@@ -51,6 +60,15 @@ function BMIdetail() {
       setStudentObject(response.data);
       console.log(response.data);
     });
+
+    const res3 = axios.get("http://localhost:8080/catering/guardians/order/" + studentId, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+        setOrders(response.data);
+    });
+
   };
 
   return (
@@ -91,30 +109,51 @@ function BMIdetail() {
                     </Grid>
                     <Grid item xs={6} sm={6} />
 
+                    <Grid item xs={6} sm={6}>
+                      <Box>
+                        <h5>Student Name : {studentObject?.firstName} {studentObject?.lastName}</h5>
+                        <h5>Index Number : {studentObject?.indexNumber}</h5>
+                        <h5>Guarding Name : {studentObject.guardian?.firstName} {studentObject.guardian?.lastName}</h5> 
+                      </Box>
+                    </Grid>
+                    <Grid item xs={6} sm={6} />
 
-<Box>
-  <h5>Student Name : {studentObject?.firstName} {studentObject?.lastName}</h5>
-  <h5>Index Number : {studentObject?.indexNumber}</h5>
-  <h5>Guarding Name : {studentObject.guardian?.firstName} {studentObject.guardian?.lastName}</h5> 
-</Box>
+                    <Grid item xs={6} sm={6}>                         
+                      <LineChart
+                        xAxis={[{ data: xAxisArray, scaleType: 'point' }]}
+                        series={[{ data: bmiArray }]}
+                        width={500}
+                        height={300}
+                      />
+                    </Grid>
+                    <Grid item xs={6} sm={6} />
 
-
-
-
-
-
-                    <Grid container spacing={2} rowSpacing={5} marginTop={5}>
-                  <Grid item xs={6} sm={6}>                         
-                    <LineChart
-                      xAxis={[{ data: xAxisArray, scaleType: 'point' }]}
-                      series={[{ data: bmiArray }]}
-                      width={500}
-                      height={300}
-                    />
-                  </Grid>
-                  <Grid item xs={6} sm={6} />
-
-              </Grid>
+                    <Grid item xs={6} sm={6}>
+                      <Box>
+                        <TableContainer component={Paper}>
+                            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Date</TableCell>
+                                        <TableCell>Name</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                {orders.map((order) => (
+                                    <TableRow
+                                    key={order.id}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                    <TableCell>{order.date}</TableCell>
+                                    <TableCell>{order.menu.name}</TableCell>
+                                    </TableRow>
+                                ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={6} sm={6} />
 
                 </Grid>
 

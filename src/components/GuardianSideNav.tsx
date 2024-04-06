@@ -189,6 +189,45 @@ export default function GuardianSideNav({ title }: { title: string }) {
               </Collapse>
             </ListItem>
 
+            <ListItem disablePadding sx={{ display: 'block' }} >
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                    <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary="Order" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+              <Collapse in={open} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding onClick={()=> {navigate("/guardian/order-register")}}>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Add Order" />
+                  </ListItemButton>
+                </List>
+                <List component="div" disablePadding onClick={()=> {navigate("/guardian/orders")}}>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Order List" />
+                  </ListItemButton>
+                </List>
+              </Collapse>
+            </ListItem>
+
             <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=> {navigate("/guardian/paymentMethod")}}>
               <ListItemButton
                 sx={{
