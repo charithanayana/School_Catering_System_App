@@ -21,7 +21,9 @@ import PaymentMethod from './pages/Guardian/PaymentMethod';
 import UserProfile from './pages/Guardian/UserProfile';
 import StudentList from './pages/Guardian/StudentList';
 import OrderRegistration from './pages/Guardian/OrderRegistration';
+import MenuList from './pages/menu/MenuList';
 import StudentOrder from './pages/Guardian/StudentOrder';
+import MenuDetail from './pages/menu/MenuDetail';
 
 function App() {
   return (
@@ -42,6 +44,8 @@ function App() {
           <Route path='/guardian/student-register' element={<StudentRegistration/>}/>
           <Route path='/guardian/students' element={<StudentList/>}/>
           <Route path='/guardian/order-register' element={<OrderRegistration/>}/>
+          <Route path='/menu' element={<MenuList/>}/>
+          <Route path='/menu/:menuId' element={<MenuDetail/>}/>
           <Route path='/guardian/orders' element={<StudentOrder/>}/>
           <Route path='/guardian/bmaiChart' element={<BmiChart/>}/>
           <Route path='/guardian/paymentMethod' element={<PaymentMethod/>}/>

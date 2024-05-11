@@ -209,6 +209,14 @@ export default function GuardianSideNav({ title }: { title: string }) {
                 <ListItemText primary="Order" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
               <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding onClick={()=> {navigate("/menu")}}>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="View Menu" />
+                  </ListItemButton>
+                </List>
                 <List component="div" disablePadding onClick={()=> {navigate("/guardian/order-register")}}>
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
