@@ -24,8 +24,12 @@ import OrderRegistration from './pages/Guardian/OrderRegistration';
 import MenuList from './pages/menu/MenuList';
 import StudentOrder from './pages/Guardian/StudentOrder';
 import MenuDetail from './pages/menu/MenuDetail';
+<<<<<<< HEAD
 import Home from './pages/Home/Home';
 
+=======
+import BMIdetailGuardian from './pages/Guardian/BMIdetailGuardian';
+>>>>>>> 9a931851495fb5be8e44de1b17a667f68d5ec4fe
 
 function App() {
   return (
@@ -47,10 +51,11 @@ function App() {
           <Route path='/guardian/student-register' element={<StudentRegistration/>}/>
           <Route path='/guardian/students' element={<StudentList/>}/>
           <Route path='/guardian/order-register' element={<OrderRegistration/>}/>
+          <Route path='/guardian/bmi/details' element={<BMIdetailGuardian/>}/>
           <Route path='/menu' element={<MenuList/>}/>
           <Route path='/menu/:menuId' element={<MenuDetail/>}/>
           <Route path='/guardian/orders' element={<StudentOrder/>}/>
-          <Route path='/guardian/bmaiChart' element={<BmiChart/>}/>
+          {/* <Route path='/guardian/bmaiChart' element={<BmiChart/>}/> */}
           <Route path='/guardian/paymentMethod' element={<PaymentMethod/>}/>
           <Route path='/guardian/userProfile' element={<UserProfile/>}/>
           {/* Catering Manager */}
