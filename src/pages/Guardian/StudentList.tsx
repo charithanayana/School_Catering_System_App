@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Link, TextField, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import SideNav from '../../components/GuardianSideNav';
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
@@ -15,27 +15,25 @@ import Paper from '@mui/material/Paper';
 
 export default function StudentList() {
 
+
     let userStr = localStorage.getItem('CATERING_LOGIN_USER') || '{}';
     let userObj = JSON.parse(userStr);
     // let students : any[] = [];
     const [students, setStudents] = useState<any[]>([]);
 
-    
-    const res = axios.get("http://localhost:8080/catering/students/guardian/" + userObj.userId, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then((response) => {
-        setStudents(response.data);
-        // Swal.fire({
-        //   icon: "success",
-        //   title: "The student has been registered successfully",
-        //   showConfirmButton: false,
-        //   timer: 1500
-        // });
-      });
+    useEffect(() => {
+        const res = axios.get("http://localhost:8080/catering/students/guardian/" + userObj.userId, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => {
+            setStudents(response.data);
+        });
+    }, []);
 
-      return (
+
+
+    return (
         <>
             <Box sx={{ display: 'flex', marginTop: '60px' }}>
                 <SideNav title='Student Registration' />
@@ -56,17 +54,17 @@ export default function StudentList() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {students.map((student) => (
-                                <TableRow
-                                key={student.id}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                >
-                                <TableCell>{student.id}</TableCell>
-                                <TableCell>{student.firstName}</TableCell>
-                                <TableCell>{student.lastName}</TableCell>
-                                <TableCell>{student.indexNumber}</TableCell>
-                                </TableRow>
-                            ))}
+                                {students.map((student) => (
+                                    <TableRow
+                                        key={student.id}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell>{student.id}</TableCell>
+                                        <TableCell>{student.firstName}</TableCell>
+                                        <TableCell>{student.lastName}</TableCell>
+                                        <TableCell>{student.indexNumber}</TableCell>
+                                    </TableRow>
+                                ))}
                             </TableBody>
                         </Table>
                     </TableContainer>
