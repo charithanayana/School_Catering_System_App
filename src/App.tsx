@@ -24,13 +24,16 @@ import OrderRegistration from './pages/Guardian/OrderRegistration';
 import MenuList from './pages/menu/MenuList';
 import StudentOrder from './pages/Guardian/StudentOrder';
 import MenuDetail from './pages/menu/MenuDetail';
+import Home from './pages/Home/Home';
+
 
 function App() {
   return (
     <>
      <BrowserRouter>
       <Routes>
-          <Route path="/" element={<SignIn/>}/>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/login" element={<SignIn/>}/>
           <Route path="/doctor" element={<DoctorAdmin/>}/>
           <Route path='/guardian' element={<GuardianAdmin/>}/>
           <Route path='/guardian/register' element={<ParentRegister/>}/>
