@@ -257,7 +257,7 @@ export default function GuardianSideNav({ title }: { title: string }) {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/guardian/bmaiChart")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/guardian/bmi/details")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
