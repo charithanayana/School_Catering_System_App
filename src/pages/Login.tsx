@@ -64,6 +64,8 @@ export default function SignIn() {
         navigate('/guardian/students');
       } else if (authData.userType === 'ADMIN') {
         navigate('/schoolAdmin');
+      } else if (authData.userType === 'CATERING_ADMIN') {
+        navigate('/catering-manager');
       }
     });
   };

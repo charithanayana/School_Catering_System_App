@@ -69,7 +69,7 @@ export default function ParentRegister() {
         showConfirmButton: false,
         timer: 1500
       });
-      navigate('/guardian');
+      navigate('/login');
     });
   };
 
@@ -181,7 +181,7 @@ export default function ParentRegister() {
                     fullWidth
                     name="confirmPassword"
                     label="Confirm Password"
-                    type="confirmPassword"
+                    type="password"
                     id="confirmPassword"
                     autoComplete="new-password"
                   />
