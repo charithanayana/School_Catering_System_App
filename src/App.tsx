@@ -14,9 +14,6 @@ import Feedback from './pages/schoolAdministration/Feedback';
 import GuardianCardDetail from './pages/Guardian/GuardianCardDetail';
 import StudentRegistration from './pages/Guardian/StudentRegistration';
 import CateringManagerPage from './pages/cateringManager/CateringManagePage';
-import AddMenuPage from './pages/cateringManager/AddMenuPage';
-import AddMenuItems from './pages/cateringManager/AddMenuItems';
-import BmiChart from './pages/Guardian/BmiChart';
 import PaymentMethod from './pages/Guardian/PaymentMethod';
 import UserProfile from './pages/Guardian/UserProfile';
 import StudentList from './pages/Guardian/StudentList';
@@ -31,6 +28,8 @@ import ConsultantList from './pages/consultant/ConsultantList';
 import NotificationList from './pages/notification/NotificationList';
 import CateringManagerRegistration from './pages/catering/CateringManagerRegistration';
 import CateringtManagerList from './pages/catering/CateringtManagerList';
+import AddMenu from './pages/cateringManager/AddMenu';
+import AddMenuItem from './pages/cateringManager/AddMenuItem';
 
 function App() {
   return (
@@ -65,8 +64,8 @@ function App() {
           <Route path='/guardian/userProfile' element={<UserProfile/>}/>
           {/* Catering Manager */}
           <Route path='/catering-manager' element={<CateringManagerPage/>}/>          
-          <Route path='/catering-manager/addMenu' element={<AddMenuPage/>}/>          
-          <Route path='/catering-manager/addMenuItems' element={<AddMenuItems/>}/>        
+          <Route path='/catering-manager/addMenu' element={<AddMenu/>}/>          
+          <Route path='/catering-manager/addMenuItems' element={<AddMenuItem/>}/>        
           <Route path='/notification' element={<NotificationList/>}/>
       </Routes>
      </BrowserRouter>
