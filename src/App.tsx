@@ -24,12 +24,10 @@ import OrderRegistration from './pages/Guardian/OrderRegistration';
 import MenuList from './pages/menu/MenuList';
 import StudentOrder from './pages/Guardian/StudentOrder';
 import MenuDetail from './pages/menu/MenuDetail';
-<<<<<<< HEAD
 import Home from './pages/Home/Home';
-
-=======
 import BMIdetailGuardian from './pages/Guardian/BMIdetailGuardian';
->>>>>>> 9a931851495fb5be8e44de1b17a667f68d5ec4fe
+import ConsultantRegistration from './pages/consultant/ConsultantRegistration';
+import ConsultantList from './pages/consultant/ConsultantList';
 
 function App() {
   return (
@@ -45,6 +43,8 @@ function App() {
           <Route path='/schoolAdmin' element={<SchoolAdmin/>}/>
           <Route path='/schoolAdmin/bmi/details' element={<BMIdetail/>}/>
           <Route path='/schoolAdmin/bmi/register' element={<BMIRegistration/>}/>
+          <Route path='/schoolAdmin/consultant/register' element={<ConsultantRegistration/>}/>
+          <Route path='/schoolAdmin/consultant/list' element={<ConsultantList/>}/>
           <Route path='/schoolAdmin/guardian-detail' element={<GuardianDetail/>}/>
           <Route path='/schoolAdmin/feedback' element={<Feedback/>}/>
           <Route path='/guardian/foodDetail' element={<GuardianCardDetail/>}/>

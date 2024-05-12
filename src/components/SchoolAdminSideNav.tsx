@@ -20,6 +20,7 @@ import { CSSObject, Theme, styled, useTheme } from '@mui/material/styles';
 import * as React from 'react';
 import { useNavigate } from "react-router-dom";
 import HomeIcon from '@mui/icons-material/Home';
+import Collapse from '@mui/material/Collapse';
 
 const drawerWidth = 240;
 
@@ -231,6 +232,46 @@ export default function SchoolAdminSideNav({ title }: { title: string }) {
               <ListItemText primary="Feedback" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
+
+          <ListItem disablePadding sx={{ display: 'block' }} >
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                    <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary="Consultant" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+              <Collapse in={open} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding onClick={()=> {navigate("/schoolAdmin/consultant/register")}}>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Register" />
+                  </ListItemButton>
+                </List>
+                <List component="div" disablePadding onClick={()=> {navigate("/schoolAdmin/consultant/list")}}>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="List" />
+                  </ListItemButton>
+                </List>
+              </Collapse>
+            </ListItem>
+
         </List>
       </Drawer>
     </Box>
