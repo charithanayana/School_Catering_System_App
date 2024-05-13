@@ -21,6 +21,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Collapse from '@mui/material/Collapse';
 import StarBorder from '@mui/icons-material/StarBorder';
+import { Button } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -106,7 +107,7 @@ export default function GuardianSideNav({ title }: { title: string }) {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={()=> setOpen(!open)}
+            onClick={() => setOpen(!open)}
             edge="start"
             sx={{
               marginRight: 5,
@@ -116,209 +117,219 @@ export default function GuardianSideNav({ title }: { title: string }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-          { title }
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={()=> setOpen(!open)}>
+          <IconButton onClick={() => setOpen(!open)}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
 
         <Divider />
         <List>
-           <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/guardian")}}>
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/guardian") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                 <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Home" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} >
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} >
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Student" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding onClick={() => { navigate("/guardian/student-register") }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
                     <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Student" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-              <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding onClick={()=> {navigate("/guardian/student-register")}}>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Register" />
-                  </ListItemButton>
-                </List>
-                <List component="div" disablePadding onClick={()=> {navigate("/guardian/students")}}>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="List" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
-            </ListItem>
+                  </ListItemIcon>
+                  <ListItemText primary="Register" />
+                </ListItemButton>
+              </List>
+              <List component="div" disablePadding onClick={() => { navigate("/guardian/students") }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="List" />
+                </ListItemButton>
+              </List>
+            </Collapse>
+          </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} >
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} >
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Order" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding onClick={() => { navigate("/menu") }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
                     <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Order" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-              <Collapse in={open} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding onClick={()=> {navigate("/menu")}}>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="View Menu" />
-                  </ListItemButton>
-                </List>
-                <List component="div" disablePadding onClick={()=> {navigate("/guardian/order-register")}}>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Add Order" />
-                  </ListItemButton>
-                </List>
-                <List component="div" disablePadding onClick={()=> {navigate("/guardian/orders")}}>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Order List" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
-            </ListItem>
+                  </ListItemIcon>
+                  <ListItemText primary="View Menu" />
+                </ListItemButton>
+              </List>
+              <List component="div" disablePadding onClick={() => { navigate("/guardian/order-register") }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Add Order" />
+                </ListItemButton>
+              </List>
+              <List component="div" disablePadding onClick={() => { navigate("/guardian/orders") }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Order List" />
+                </ListItemButton>
+              </List>
+            </Collapse>
+          </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=> {navigate("/guardian/paymentMethod")}}>
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/guardian/paymentMethod") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                    <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Payment Method" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Payment Method" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/guardian/bmi/details")}}>
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/guardian/bmi/details") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                    <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="BMI Chart" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="BMI Chart" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/guardian/userProfile")}}>
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/guardian/userProfile") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                    <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="User Profile" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="User Profile" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> {navigate("/notification")}}>
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/notification") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                    <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Notification" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Notification" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "25%"
+          }}>
+            <Button variant="outlined" color="error" href='/'>
+              Logout
+            </Button>
+          </div>
         </List>
       </Drawer>
     </Box>

@@ -21,6 +21,8 @@ import * as React from 'react';
 import { useNavigate } from "react-router-dom";
 import HomeIcon from '@mui/icons-material/Home';
 import Collapse from '@mui/material/Collapse';
+import { Button } from '@mui/material';
+import { AlignVerticalCenter } from '@mui/icons-material';
 
 const drawerWidth = 240;
 
@@ -234,84 +236,84 @@ export default function SchoolAdminSideNav({ title }: { title: string }) {
           </ListItem>
 
           <ListItem disablePadding sx={{ display: 'block' }} >
-              <ListItemButton
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Consultant" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding onClick={() => { navigate("/schoolAdmin/consultant/register") }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
                     <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Consultant" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-              <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding onClick={()=> {navigate("/schoolAdmin/consultant/register")}}>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Register" />
-                  </ListItemButton>
-                </List>
-                <List component="div" disablePadding onClick={()=> {navigate("/schoolAdmin/consultant/list")}}>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="List" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
-            </ListItem>
+                  </ListItemIcon>
+                  <ListItemText primary="Register" />
+                </ListItemButton>
+              </List>
+              <List component="div" disablePadding onClick={() => { navigate("/schoolAdmin/consultant/list") }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="List" />
+                </ListItemButton>
+              </List>
+            </Collapse>
+          </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} >
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }} >
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Catering Manager" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding onClick={() => { navigate("/schoolAdmin/catering/register") }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
                     <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Catering Manager" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-              <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding onClick={()=> {navigate("/schoolAdmin/catering/register")}}>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Register" />
-                  </ListItemButton>
-                </List>
-                <List component="div" disablePadding onClick={()=> {navigate("/schoolAdmin/catering/list")}}>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="List" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
-            </ListItem>
+                  </ListItemIcon>
+                  <ListItemText primary="Register" />
+                </ListItemButton>
+              </List>
+              <List component="div" disablePadding onClick={() => { navigate("/schoolAdmin/catering/list") }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="List" />
+                </ListItemButton>
+              </List>
+            </Collapse>
+          </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/notifications") }}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/notifications") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -331,7 +333,17 @@ export default function SchoolAdminSideNav({ title }: { title: string }) {
               <ListItemText primary="Notifications" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-
+          
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "25%"
+          }}>
+            <Button variant="outlined" color="error" href='/'>
+              Logout
+            </Button>
+          </div>
         </List>
       </Drawer>
     </Box>

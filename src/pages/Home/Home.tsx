@@ -1,6 +1,6 @@
 import React from "react";
 import './home.css';
-import Slider from "react-slick";
+import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from '@mui/material/Card';
@@ -16,6 +16,7 @@ import { styled } from '@mui/material/styles';
 import { useHref } from "react-router-dom";
 import { link } from "fs";
 import { Link } from 'react-router-dom';
+
 
 
 
@@ -64,36 +65,64 @@ export default function Home() {
               <div>
                 <div className="slide img">
                   <img src='/images/is1.jpg' alt="banner 1" />
-                  <div className="info">
+                  <div className="info" style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "25%"
+          }}>
                     <h2 className="info h2">HAPPY EATERS WELCOME.....YUMMY..</h2>
-                    <button className="button-5" role="button">Button 5</button>
+                    <Link to={"/guardian/register"}>
+                    <button className="button-5" role="button">REGISTER NOW</button>
+                    </Link>
                   </div>
                 </div>
               </div>
               <div>
                 <div className="slide img">
                   <img src='/images/is2.jpg' alt="banner 2" />
-                  <div className="info">
+                  <div className="info" style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "25%"
+          }}>
                     <h2 className="info h22">AMAZING VARIETY...</h2>
-                    <button className="button-5" role="button">Button 5</button>
+                    <Link to={"/guardian/register"}>
+                    <button className="button-5" role="button">REGISTER NOW</button>
+                    </Link>
                   </div>
                 </div>
               </div>
               <div>
                 <div className="slide img">
                   <img src='/images/is3.jpg' alt="banner 3" />
-                  <div className="info">
-                    <h2 className="info h2">TOWARDS A HEALTHY EATER GENERATION...</h2>
-                    <button className="button-5" role="button">Button 5</button>
+                  <div className="info" style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "25%"
+          }}>
+                    <h2 className="info h2">Quick and easy</h2>
+                    <Link to={"/guardian/register"}>
+                    <button className="button-5" role="button">REGISTER NOW</button>
+                    </Link>
                   </div>
                 </div>
               </div>
               <div>
                 <div className="slide img">
                   <img src='/images/is4.jpg' alt="banner 4" />
-                  <div className="info">
-                    <h2 className="info h2">1 Lorem ipsum dolor</h2>
-                    <button className="button-5" role="button">Button 5</button>
+                  <div className="info" style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "25%"
+          }}>
+                    <h2 className="info h2">Nurturing happy little hungers</h2>
+                    <Link to={"/guardian/register"}>
+                    <button className="button-5" role="button">REGISTER NOW</button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -207,14 +236,14 @@ export default function Home() {
                 <CardMedia
                   sx={{ height: 260 }}
                   image="/images/n1.jpg"
-                  title="SIGN IN & ORDER"
+                  title="REGULAR"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h4" component="div">
-                  REGULAR
+                    REGULAR
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                  Kid-approved, flavorful meals are the choices in the REGULAR lunches. We have a wide variety of delicious meat lunches come under this category
+                    Kid-approved, flavorful meals are the choices in the REGULAR lunches. We have a wide variety of delicious meat lunches come under this category
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -226,14 +255,14 @@ export default function Home() {
                 <CardMedia
                   sx={{ height: 260 }}
                   image="/images/n2.jpg"
-                  title="COOK & DELIVER"
+                  title="VEGETARIAN"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h4" component="div">
-                  VEGETARIAN
+                    VEGETARIAN
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                  We keep our VEGETARIAN meals alive by using authentic ingredients, cooked from scratch, using food in its simplest, most natural form.
+                    We keep our VEGETARIAN meals alive by using authentic ingredients, cooked from scratch, using food in its simplest, most natural form.
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -245,14 +274,14 @@ export default function Home() {
                 <CardMedia
                   sx={{ height: 260 }}
                   image="/images/r1.jpg"
-                  title="SERVING"
+                  title="INDIAN"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h4" component="div">
-                  INDIAN
+                    INDIAN
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                  We are one of the very first companies to introduce Indian food to school lunches in Bay Area. Our authentic Indian dishes make kids happy.
+                    We are one of the very first companies to introduce Indian food to school lunches in Bay Area. Our authentic Indian dishes make kids happy.
                   </Typography>
                 </CardContent>
                 <CardActions>
