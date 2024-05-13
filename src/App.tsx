@@ -31,6 +31,7 @@ import CateringManagerRegistration from './pages/catering/CateringManagerRegistr
 import CateringtManagerList from './pages/catering/CateringtManagerList';
 import BMIdetailConsultant from './pages/consultant/BMIdetailConsultant';
 import NutritionAdjustment from './pages/consultant/NutritionAdjustment';
+import ViewOrders from './pages/cateringManager/ViewOrders';
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
           <Route path='/catering-manager' element={<CateringManagerPage />} />
           <Route path='/catering-manager/addMenu' element={<AddMenu />} />
           <Route path='/catering-manager/addMenuItems' element={<AddMenuItem />} />
+          <Route path='/catering-manager/viewOrders' element={<ViewOrders />} />
           <Route path='/notification' element={<NotificationList/>}/>
         </Routes>
       </BrowserRouter>
