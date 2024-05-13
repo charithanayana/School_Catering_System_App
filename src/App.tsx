@@ -30,6 +30,7 @@ import NotificationList from './pages/notification/NotificationList';
 import CateringManagerRegistration from './pages/catering/CateringManagerRegistration';
 import CateringtManagerList from './pages/catering/CateringtManagerList';
 import BMIdetailConsultant from './pages/consultant/BMIdetailConsultant';
+import NutritionAdjustment from './pages/consultant/NutritionAdjustment';
 
 function App() {
   return (
@@ -38,8 +39,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<SignIn />} />
-          <Route path="/ConsultantPage" element={<DoctorAdmin />} />
-          <Route path='/ConsultantPage/bmi/details' element={<BMIdetailConsultant />} />
+          <Route path="/consultantPage" element={<DoctorAdmin />} />
+          <Route path='/consultantPage/bmi/details' element={<BMIdetailConsultant />} />
+          <Route path='/consultantPage/nutrition-adjustment' element={<NutritionAdjustment />} />
           <Route path='/guardian' element={<GuardianAdmin />} />
           <Route path='/guardian/register' element={<ParentRegister />} />
           <Route path='/cateringAdmin' element={<CateringAdmin />} />

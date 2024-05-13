@@ -170,7 +170,7 @@ export default function DoctorSideNav({ title }: { title: string }) {
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/") }}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/consultantPage/nutrition-adjustment") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -194,7 +194,7 @@ export default function DoctorSideNav({ title }: { title: string }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            height: "25%"
+            height: "70%"
           }}>
             <Button variant="outlined" color="error" href='/'>
               Logout

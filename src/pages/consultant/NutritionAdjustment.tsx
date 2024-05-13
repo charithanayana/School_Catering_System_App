@@ -1,19 +1,11 @@
+import { Box, Card, CardContent, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, Typography } from '@mui/material'
+import Grid from '@mui/material/Grid';
 import DoctorSideNav from '../../components/DoctorSideNav';
-import { Box, Button, Grid, Link, TextField, Typography, Select, MenuItem, InputLabel, FormControl, SelectChangeEvent } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useState, useEffect, SetStateAction, ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Swal from 'sweetalert2';
-import { useLoaderData, useNavigate } from "react-router-dom";
-import { LineChart } from '@mui/x-charts/LineChart';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 
-function BMIdetailConsultant() {
+function DoctorAdmin() {
 
   const navigate = useNavigate();
 
@@ -34,7 +26,6 @@ function BMIdetailConsultant() {
     });
   }, []);
 
-
   const handleChange = (event: SelectChangeEvent) => {
     let studentId = event.target.value;
     const res = axios.get("http://localhost:8080/catering/students/report/" + studentId, {
@@ -42,15 +33,9 @@ function BMIdetailConsultant() {
         'Content-Type': 'application/json'
       }
     }).then((response) => {
-      let xAxisArr = [];
-      let bmiArr = [];
-      let data = response.data;
-      for (var ind in data) {
-        xAxisArr.push(data[ind].dateString);
-        bmiArr.push(data[ind].bmi);
-      }
-      setXaxisArray(xAxisArr);
-      setBmiArray(bmiArr);
+
+
+
     });
     const res2 = axios.get("http://localhost:8080/catering/students/" + studentId, {
       headers: {
@@ -61,27 +46,40 @@ function BMIdetailConsultant() {
       console.log(response.data);
     });
 
-    const res3 = axios.get("http://localhost:8080/catering/guardians/order/" + studentId, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then((response) => {
-      setOrders(response.data);
-    });
 
   };
 
+  const marks = [
+    {
+      value: 0,
+      label: '0g',
+    },
+    {
+      value: 20,
+      label: '20g',
+    },
+    {
+      value: 50,
+      label: '50g',
+    },
+    
+  ];
+
+
+  function valuetext(value: number) {
+    return `${value}°C`;
+  }
   return (
     <>
       <Box sx={{ display: 'flex', marginTop: '60px' }}>
-        <DoctorSideNav title='BMI Details' />
-        <Box component="div" sx={{ flexGrow: 1, p: 3 }}>
+        <DoctorSideNav title='NutritionAdjustment' />
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+
           <Box textAlign={'center'}>
             <Typography lineHeight={3} component="h1" variant="h4">
-              BMI Details
+              NUTRITION ADJUSTMENT
             </Typography>
           </Box>
-
           <Box textAlign={'left'}>
             <Typography lineHeight={2} component="h6" variant="subtitle2">
               Report Of {studentObject?.firstName} {studentObject?.lastName}
@@ -109,6 +107,8 @@ function BMIdetailConsultant() {
               </Grid>
               <Grid item xs={6} sm={6} />
 
+
+
               <Grid item xs={6} sm={6}>
                 <Box>
                   <h5>Student Name : {studentObject?.firstName} {studentObject?.lastName}</h5>
@@ -117,48 +117,7 @@ function BMIdetailConsultant() {
                 </Box>
               </Grid>
               <Grid item xs={6} sm={6} />
-
-              <Grid item xs={6} sm={6}>
-                <LineChart
-                  xAxis={[{ data: xAxisArray, scaleType: 'point' }]}
-                  series={[{ data: bmiArray }]}
-                  width={500}
-                  height={300}
-                />
-              </Grid>
-              <Grid item xs={6} sm={6} />
-
-              <Grid item xs={6} sm={6}>
-                <Box>
-                  <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>Date</TableCell>
-                          <TableCell>Name</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {orders.map((order) => (
-                          <TableRow
-                            key={order.id}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                          >
-                            <TableCell>{order.date}</TableCell>
-                            <TableCell>{order.menu.name}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </Box>
-              </Grid>
-              <Grid item xs={6} sm={6} />
-
             </Grid>
-
-
-
           </Box>
         </Box>
       </Box>
@@ -166,4 +125,4 @@ function BMIdetailConsultant() {
   )
 }
 
-export default BMIdetailConsultant
+export default DoctorAdmin
