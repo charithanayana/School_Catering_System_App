@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 import { Box, Checkbox } from '@mui/material';
 import SideNav from '../../components/GuardianSideNav';
 
-export default function PaymentMethod() {
+export default function PaymentMethodTmp() {
     function createData(
         name: string,
         calories: number,

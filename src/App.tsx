@@ -13,7 +13,6 @@ import Feedback from './pages/schoolAdministration/Feedback';
 import GuardianCardDetail from './pages/Guardian/GuardianCardDetail';
 import StudentRegistration from './pages/Guardian/StudentRegistration';
 import CateringManagerPage from './pages/cateringManager/CateringManagePage';
-import PaymentMethod from './pages/Guardian/PaymentMethod';
 import UserProfile from './pages/Guardian/UserProfile';
 import StudentList from './pages/Guardian/StudentList';
 import OrderRegistration from './pages/Guardian/OrderRegistration';
@@ -32,6 +31,7 @@ import CateringtManagerList from './pages/catering/CateringtManagerList';
 import BMIdetailConsultant from './pages/consultant/BMIdetailConsultant';
 import NutritionAdjustment from './pages/consultant/NutritionAdjustment';
 import ViewOrders from './pages/cateringManager/ViewOrders';
+import PaymentDetails from './pages/Guardian/PaymentDetails';
 
 function App() {
   return (
@@ -64,7 +64,7 @@ function App() {
           <Route path='/menu/:menuId' element={<MenuDetail />} />
           <Route path='/guardian/orders' element={<StudentOrder />} />
           {/* <Route path='/guardian/bmaiChart' element={<BmiChart/>}/> */}
-          <Route path='/guardian/paymentMethod' element={<PaymentMethod />} />
+          <Route path='/guardian/paymentDetails' element={<PaymentDetails />} />
           <Route path='/guardian/userProfile' element={<UserProfile />} />
           {/* Catering Manager */}
           <Route path='/catering-manager' element={<CateringManagerPage />} />

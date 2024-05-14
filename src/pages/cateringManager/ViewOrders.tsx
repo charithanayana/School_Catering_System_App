@@ -1,8 +1,4 @@
 import { Box, Button, Grid, Link, ListItem, SelectChangeEvent, TextField, Typography } from '@mui/material';
-import React, { ChangeEvent, useEffect } from 'react';
-import SideNav from '../../components/GuardianSideNav';
-import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2';
 import axios from 'axios';
 import { useState } from 'react';
 import Table from '@mui/material/Table';
@@ -15,7 +11,7 @@ import Paper from '@mui/material/Paper';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import dayjs, { Dayjs } from 'dayjs';
+import CateringManagerSideNav from '../../components/CateringManagerSideNav';
 
 export default function ViewOrders() {
 
@@ -37,7 +33,7 @@ export default function ViewOrders() {
     return (
         <>
             <Box sx={{ display: 'flex', marginTop: '60px' }} component="form" onSubmit={handleSubmit}>
-                <SideNav title='Order Registration' />
+                <CateringManagerSideNav title='Add Menu' />
                 <Box component="div" sx={{ flexGrow: 1, p: 3 }}>
                     <Box textAlign={'center'}>
                         <Typography lineHeight={3} component="h1" variant="h4">
@@ -86,10 +82,12 @@ export default function ViewOrders() {
                                                 <TableCell>{order.id}</TableCell>
                                                 <TableCell>{order.date}</TableCell>
                                                 <TableCell>{order.student.firstName} {order.student.lastName}</TableCell>
-                                                <TableCell>{order.menu.name}</TableCell>
+                                                <TableCell>{order.menu.id} - {order.menu.name}</TableCell>
                                                 <TableCell>
                                                 {order.menu?.items.map((item: any) => (
-                                                    <ListItem>{item.name}</ListItem>
+                                                    <ListItem>
+                                                        {item.id} - {item.name}
+                                                    </ListItem>
                                                 ))}
                                                 </TableCell>
                                             </TableRow>
