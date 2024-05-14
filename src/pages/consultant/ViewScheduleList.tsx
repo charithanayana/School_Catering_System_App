@@ -16,12 +16,15 @@ import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
 import DoctorSideNav from '../../components/DoctorSideNav';
 
-export default function ViewConsultantSchedule() {
+export default function ViewScheduleList() {
+
+    let userStr = localStorage.getItem('CATERING_LOGIN_USER') || '{}';
+    let userObj = JSON.parse(userStr);
 
     const [schedules, setSchedules] = useState<any[]>([]);
     
     useEffect(() => {
-        axios.get("http://localhost:8080/catering/schedules?status=PENDING", {
+        axios.get("http://localhost:8080/catering/schedules/consultant/" + userObj.id + "?status=PENDING", {
           headers: {
             'Content-Type': 'application/json'
           }

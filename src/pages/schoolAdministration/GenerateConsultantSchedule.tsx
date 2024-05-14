@@ -12,7 +12,7 @@ export default function GenerateConsultantSchedule() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         let date = data.get('date');
-        axios.get("http://localhost:8080/catering/schedules/consultant/" + date, {
+        axios.get("http://localhost:8080/catering/schedules/consultant?date=" + date, {
             headers: {
             'Content-Type': 'application/json'
             }
