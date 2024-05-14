@@ -92,6 +92,11 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
+function handleLogout() {
+  // Clear local storage
+  localStorage.clear();
+}
+
 export default function DoctorSideNav({ title }: { title: string }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
@@ -196,7 +201,7 @@ export default function DoctorSideNav({ title }: { title: string }) {
             justifyContent: "center",
             height: "70%"
           }}>
-            <Button variant="outlined" color="error" href='/'>
+            <Button variant="outlined" color="error" href='/' onClick={handleLogout}>
               Logout
             </Button>
           </div>

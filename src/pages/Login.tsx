@@ -59,7 +59,11 @@ export default function SignIn() {
       let authData = response.data;
       localStorage.setItem('CATERING_LOGIN_USER', JSON.stringify(authData));
       if (authData.userType === 'CONSULTANT') {
+<<<<<<< Updated upstream
         navigate('/consultant');
+=======
+        navigate('/consultantPage');
+>>>>>>> Stashed changes
       } else if (authData.userType === 'GUARDIAN') {
         navigate('/guardian/students');
       } else if (authData.userType === 'ADMIN') {

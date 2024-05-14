@@ -91,6 +91,11 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   }),
 );
+function handleLogout() {
+  // Clear local storage
+  localStorage.clear();
+}
+
 
 export default function CateringManagerSideNav({ title }: { title: string }) {
   const theme = useTheme();
@@ -211,6 +216,26 @@ export default function CateringManagerSideNav({ title }: { title: string }) {
               <ListItemText primary="View Orders" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/notification") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}
+              >
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Notification" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
 
           <div style={{
             display: "flex",
@@ -218,7 +243,7 @@ export default function CateringManagerSideNav({ title }: { title: string }) {
             justifyContent: "center",
             height: "25%"
           }}>
-            <Button variant="outlined" color="error" href='/'>
+            <Button variant="outlined" color="error" href='/' onClick={handleLogout}>
               Logout
             </Button>
           </div>

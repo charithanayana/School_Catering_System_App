@@ -93,6 +93,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   }),
 );
+function handleLogout() {
+  // Clear local storage
+  localStorage.clear();
+}
 
 export default function GuardianSideNav({ title }: { title: string }) {
   const theme = useTheme();
@@ -237,7 +241,7 @@ export default function GuardianSideNav({ title }: { title: string }) {
             </Collapse>
           </ListItem>
 
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/guardian/paymentMethod") }}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/guardian/paymentDetails") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -326,7 +330,7 @@ export default function GuardianSideNav({ title }: { title: string }) {
             justifyContent: "center",
             height: "25%"
           }}>
-            <Button variant="outlined" color="error" href='/'>
+            <Button variant="outlined" color="error" href='/'onClick={handleLogout}>
               Logout
             </Button>
           </div>

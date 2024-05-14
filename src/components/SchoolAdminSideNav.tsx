@@ -95,6 +95,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
+function handleLogout() {
+  // Clear local storage
+  localStorage.clear();
+}
 export default function SchoolAdminSideNav({ title }: { title: string }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
@@ -313,7 +317,7 @@ export default function SchoolAdminSideNav({ title }: { title: string }) {
             </Collapse>
           </ListItem>
 
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/notifications") }}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/notification") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -361,7 +365,7 @@ export default function SchoolAdminSideNav({ title }: { title: string }) {
             justifyContent: "center",
             height: "25%"
           }}>
-            <Button variant="outlined" color="error" href='/'>
+            <Button variant="outlined" color="error" href='/' onClick={handleLogout}>
               Logout
             </Button>
           </div>
