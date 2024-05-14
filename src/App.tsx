@@ -34,6 +34,7 @@ import PaymentDetails from './pages/Guardian/PaymentDetails';
 import GenerateConsultantSchedule from './pages/schoolAdministration/GenerateConsultantSchedule';
 import ViewSchedule from './pages/consultant/ViewSchedule';
 import ViewScheduleList from './pages/consultant/ViewScheduleList';
+import NotificationListCateringManager from './pages/notification/NotificationListCateringManager';
 
 function App() {
   return (
@@ -74,6 +75,7 @@ function App() {
           <Route path='/catering-manager/addMenu' element={<AddMenu />} />
           <Route path='/catering-manager/addMenuItems' element={<AddMenuItem />} />
           <Route path='/catering-manager/viewOrders' element={<ViewOrders />} />
+          <Route path='/catering-manager/notificationList' element={<NotificationListCateringManager />} />
           <Route path='/notification' element={<NotificationList/>}/>
           <Route path='/schoolAdmin/schedule' element={<GenerateConsultantSchedule/>}/>
         </Routes>

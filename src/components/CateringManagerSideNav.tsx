@@ -216,7 +216,7 @@ export default function CateringManagerSideNav({ title }: { title: string }) {
               <ListItemText primary="View Orders" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/catering-manager/notification") }}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/catering-manager/notificationList") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
