@@ -32,8 +32,8 @@ import BMIdetailConsultant from './pages/consultant/BMIdetailConsultant';
 import ViewOrders from './pages/cateringManager/ViewOrders';
 import PaymentDetails from './pages/Guardian/PaymentDetails';
 import GenerateConsultantSchedule from './pages/schoolAdministration/GenerateConsultantSchedule';
-import ViewConsultantSchedule from './pages/consultant/ViewConsultantSchedule';
 import ViewSchedule from './pages/consultant/ViewSchedule';
+import ViewScheduleList from './pages/consultant/ViewScheduleList';
 
 function App() {
   return (
@@ -44,7 +44,7 @@ function App() {
           <Route path="/login" element={<SignIn />} />
           <Route path="/consultant" element={<DoctorAdmin />} />
           <Route path='/consultant/bmi/details' element={<BMIdetailConsultant />} />
-          <Route path='/consultant/schedule' element={<ViewConsultantSchedule />} />
+          <Route path='/consultant/schedule' element={<ViewScheduleList />} />
           <Route path='/consultant/schedule/:scheduleId' element={<ViewSchedule />} />
           <Route path='/guardian' element={<GuardianAdmin />} />
           <Route path='/guardian/register' element={<ParentRegister />} />
