@@ -128,7 +128,7 @@ export default function DoctorSideNav({ title }: { title: string }) {
 
         <Divider />
         <List>
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/ConsultantPage") }}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/Consultant") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -149,7 +149,7 @@ export default function DoctorSideNav({ title }: { title: string }) {
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/ConsultantPage/bmi/details") }}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/Consultant/bmi/details") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -170,7 +170,7 @@ export default function DoctorSideNav({ title }: { title: string }) {
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/consultantPage/nutrition-adjustment") }}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/consultant/schedule") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -187,7 +187,7 @@ export default function DoctorSideNav({ title }: { title: string }) {
               >
                 <InboxIcon />
               </ListItemIcon>
-              <ListItemText primary="Nutrition Adjustment" sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText primary="Consultant Schedule" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
           <div style={{

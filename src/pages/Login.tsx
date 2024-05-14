@@ -59,7 +59,7 @@ export default function SignIn() {
       let authData = response.data;
       localStorage.setItem('CATERING_LOGIN_USER', JSON.stringify(authData));
       if (authData.userType === 'CONSULTANT') {
-        navigate('/doctor');
+        navigate('/consultant');
       } else if (authData.userType === 'GUARDIAN') {
         navigate('/guardian/students');
       } else if (authData.userType === 'ADMIN') {

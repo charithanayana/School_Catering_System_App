@@ -29,9 +29,11 @@ import NotificationList from './pages/notification/NotificationList';
 import CateringManagerRegistration from './pages/catering/CateringManagerRegistration';
 import CateringtManagerList from './pages/catering/CateringtManagerList';
 import BMIdetailConsultant from './pages/consultant/BMIdetailConsultant';
-import NutritionAdjustment from './pages/consultant/NutritionAdjustment';
 import ViewOrders from './pages/cateringManager/ViewOrders';
 import PaymentDetails from './pages/Guardian/PaymentDetails';
+import GenerateConsultantSchedule from './pages/schoolAdministration/GenerateConsultantSchedule';
+import ViewConsultantSchedule from './pages/consultant/ViewConsultantSchedule';
+import ViewSchedule from './pages/consultant/ViewSchedule';
 
 function App() {
   return (
@@ -40,9 +42,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<SignIn />} />
-          <Route path="/consultantPage" element={<DoctorAdmin />} />
-          <Route path='/consultantPage/bmi/details' element={<BMIdetailConsultant />} />
-          <Route path='/consultantPage/nutrition-adjustment' element={<NutritionAdjustment />} />
+          <Route path="/consultant" element={<DoctorAdmin />} />
+          <Route path='/consultant/bmi/details' element={<BMIdetailConsultant />} />
+          <Route path='/consultant/schedule' element={<ViewConsultantSchedule />} />
+          <Route path='/consultant/schedule/:scheduleId' element={<ViewSchedule />} />
           <Route path='/guardian' element={<GuardianAdmin />} />
           <Route path='/guardian/register' element={<ParentRegister />} />
           <Route path='/cateringAdmin' element={<CateringAdmin />} />
@@ -72,6 +75,7 @@ function App() {
           <Route path='/catering-manager/addMenuItems' element={<AddMenuItem />} />
           <Route path='/catering-manager/viewOrders' element={<ViewOrders />} />
           <Route path='/notification' element={<NotificationList/>}/>
+          <Route path='/schoolAdmin/schedule' element={<GenerateConsultantSchedule/>}/>
         </Routes>
       </BrowserRouter>
     </>

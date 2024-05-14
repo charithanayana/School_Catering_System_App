@@ -333,6 +333,27 @@ export default function SchoolAdminSideNav({ title }: { title: string }) {
               <ListItemText primary="Notifications" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
+
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/schoolAdmin/schedule") }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}
+              >
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Schedule" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
           
           <div style={{
             display: "flex",
