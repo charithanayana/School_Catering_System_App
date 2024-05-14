@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import CateringManagerSideNav from '../../components/CateringManagerSideNav';
+import SchoolAdminSideNav from '../../components/SchoolAdminSideNav';
 import Swal from 'sweetalert2';
 
 export default function GenerateConsultantSchedule() {
@@ -29,7 +29,7 @@ export default function GenerateConsultantSchedule() {
     return (
         <>
             <Box sx={{ display: 'flex', marginTop: '60px' }} component="form" onSubmit={handleSubmit}>
-                <CateringManagerSideNav title='Add Menu' />
+                <SchoolAdminSideNav title='Genarate Consultant Schedule' />
                 <Box component="div" sx={{ flexGrow: 1, p: 3 }}>
                     <Box textAlign={'center'}>
                         <Typography lineHeight={3} component="h1" variant="h4">

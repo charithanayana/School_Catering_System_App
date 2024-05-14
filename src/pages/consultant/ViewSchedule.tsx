@@ -1,4 +1,4 @@
-import DoctorSideNav from '../../components/DoctorSideNav';
+
 import { Box, Button, Grid, Link, TextField, Typography, Select, MenuItem, InputLabel, FormControl, SelectChangeEvent } from '@mui/material';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -12,6 +12,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import SchoolAdminSideNav from '../../components/SchoolAdminSideNav';
 
 export default function ViewSchedule() {
 
@@ -99,7 +100,7 @@ export default function ViewSchedule() {
   return (
     <>
       <Box sx={{ display: 'flex', marginTop: '60px' }}>
-        <DoctorSideNav title='BMI Details' />
+        <SchoolAdminSideNav title='Consultant Schedule' />
         <Box component="div" sx={{ flexGrow: 1, p: 3 }}>
           <Box textAlign={'center'}>
             <Typography lineHeight={3} component="h1" variant="h4">
